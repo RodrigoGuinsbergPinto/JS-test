@@ -12,12 +12,22 @@ const dishes = [
   "Tomato soup",
   "Salmon",
 ];
-function getDishes() {
+
+function fetchingDishes() {
   for (i = 0; i < dishes.length; i++) {
     console.log(dishes[i]);
   }
 }
-getDishes();
+fetchingDishes();
+
+function getRandomDish() {
+  const getRandomArbitrary = function (min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+
+  console.log(`Random dish is: ${dishes[getRandomArbitrary(0, 6)]}.`);
+}
+getRandomDish();
 
 // 2. DOM manipulation
 // Using JavaScript, create a button and add it to the html (the document)
@@ -28,12 +38,17 @@ getDishes();
 const testBtn = document.createElement("button");
 testBtn.innerHTML = "Test Button";
 document.body.appendChild(testBtn);
-testBtn.addEventListener("click", function () {
-  const h1 = document.createElement("h1");
-  h1.innerHTML = "Javascripttest";
-  document.body.style.backgroundColor = "orangered";
-  document.body.after(h1);
-});
+
+testBtn.addEventListener(
+  "click",
+  function () {
+    const h1 = document.createElement("h1");
+    h1.innerHTML = "Javascripttest";
+    document.body.style.backgroundColor = "orangered";
+    document.body.after(h1);
+  },
+  { once: true }
+);
 
 // 3. Async API calls
 // Make an API call using the Fetch API. Make use of the following API:
