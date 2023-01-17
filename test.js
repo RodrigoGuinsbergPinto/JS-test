@@ -39,11 +39,12 @@ const testBtn = document.createElement("button");
 testBtn.innerHTML = "Test Button";
 document.body.appendChild(testBtn);
 
+const h1 = document.createElement("h1");
+h1.innerHTML = "Javascripttest";
+
 testBtn.addEventListener(
   "click",
   function () {
-    const h1 = document.createElement("h1");
-    h1.innerHTML = "Javascripttest";
     document.body.style.backgroundColor = "orangered";
     document.body.after(h1);
   },
